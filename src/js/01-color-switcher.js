@@ -4,11 +4,14 @@ const refs = {
   stopBtn: document.querySelector('button[data-stop]'),
   btnDisabled: document.querySelector('disabled'),
 };
+let intervalChange = null;
+refs.stopBtn.setAttribute('disabled', 'disabled');
 
 function onButton(event) {
   const color = getRandomHexColor();
   refs.body.style.backgroundColor = color;
 }
+
 function startChangeColor() {
   intervalChange = setInterval(onButton, 1000);
   refs.stopBtn.removeAttribute('disabled');
